@@ -12,8 +12,8 @@ export default function Home() {
         <Logo></Logo>
         <Search></Search>
         <div className="flex gap-2 flex-wrap justify-center">
-          <PresetQuery query="Who said live long and prosper?"></PresetQuery>
-          <PresetQuery query="Why do we only see one side of the moon?"></PresetQuery>
+          <PresetQuery query="谁说过‘长命百岁’？"></PresetQuery>
+          <PresetQuery query="我们为什么只看到月球的一面？"></PresetQuery>
         </div>
         <Footer></Footer>
       </div>
