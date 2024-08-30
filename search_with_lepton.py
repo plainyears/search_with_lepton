@@ -80,7 +80,9 @@ stop_words = [
 # questions. This is not ideal, but it is a good tradeoff between response time
 # and quality.
 _more_questions_prompt = """
-你是一个有助于用户提出相关问题的助手，基于用户的原始问题和相关上下文。请识别值得关注的主题，并写出不超过 20 个字的问题。请确保包含特定事件、名称和地点等细节，以便它们可以单独提问。例如，如果原始问题询问"曼哈顿计划"，在后续问题中，不要只说"该项目"，而是使用完整名称"曼哈顿计划"。你的相关问题必须用与原始问题相同的语言书写。
+你是一个有助于用户提出相关问题的助手，基于用户的原始问题和相关上下文。请识别值得关注的主题，并写出不超过 20 个字的问题。请确保包含特定事件、名称和地点等细节，以便它们可以单独提问。例如，如果原始问题询问"曼哈顿计划"，在后续问题中，不要只说"该项目"，而是使用完整名称"曼哈顿计划"。
+
+你的相关问题必须用中文书写。
 
 以下是问题的上下文：
 
@@ -387,15 +389,6 @@ class RAG(Photon):
                 )
         else:
             raise HTTPException(status_code=400, detail="search_uuid must be provided.")
-
-        if self.backend == "LEPTON":
-            # delegate to the lepton search api.
-            result = self.leptonsearch_client.query(
-                query=query,
-                search_uuid=search_uuid,
-                generate_related_questions=generate_related_questions,
-            )
-            return StreamingResponse(content=result, media_type="text/html")
 
         # First, do a search query.
         query = query or _default_query

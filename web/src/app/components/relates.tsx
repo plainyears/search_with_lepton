@@ -10,7 +10,7 @@ export const Relates: FC<{ relates: Relate[] | null }> = ({ relates }) => {
     <Wrapper
       title={
         <>
-          <MessageSquareQuote></MessageSquareQuote> Related
+          <MessageSquareQuote></MessageSquareQuote> 推荐
         </>
       }
       content={
@@ -21,7 +21,7 @@ export const Relates: FC<{ relates: Relate[] | null }> = ({ relates }) => {
                 <PresetQuery key={question} query={question}></PresetQuery>
               ))
             ) : (
-              <div className="text-sm">No related questions.</div>
+              <div className="text-sm">没有相关问题。</div>
             )
           ) : (
             <>

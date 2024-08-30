@@ -42,7 +42,7 @@ export const Sources: FC<{ sources: Source[] }> = ({ sources }) => {
     <Wrapper
       title={
         <>
-          <BookText></BookText> Sources
+          <BookText></BookText> 参考
         </>
       }
       content={
